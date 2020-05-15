@@ -12,12 +12,15 @@ import java.sql.ResultSet;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.SystemColor;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ViewProducts extends JFrame {
 
@@ -103,9 +106,21 @@ public class ViewProducts extends JFrame {
 		contentPane.add(lblListOfProducts);
 		
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int index = table.getSelectedRow();
+				TableModel model = table.getModel();
+				String name = model.getValueAt(index, 1).toString();
+				
+				new MakeOrder().setVisible(true);
+				dispose();
+				
+			}
+		});
 		table.setBackground(SystemColor.activeCaption);
 		
-		table.setBounds(35, 73, 536, 436);
+		table.setBounds(33, 125, 536, 436);
 		contentPane.add(table);
 	}
 }

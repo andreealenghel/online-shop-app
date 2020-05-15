@@ -1,1 +1,5 @@
+#OSA-1
+out/
+.idea/
+*.iml/
 /target/

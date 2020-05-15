@@ -8,15 +8,21 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.awt.event.ActionEvent;
 
 public class MakeOrder extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField name;
+	private JTextField address;
+	private JTextField phone;
+	private JTextField pay;
+	private JTextField quantity;
 
 	/**
 	 * Launch the application.
@@ -39,7 +45,7 @@ public class MakeOrder extends JFrame {
 	 */
 	public MakeOrder() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 458, 498);
+		setBounds(100, 100, 440, 498);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,56 +61,92 @@ public class MakeOrder extends JFrame {
 		lblName.setBounds(22, 74, 55, 30);
 		contentPane.add(lblName);
 		
-		textField = new JTextField();
-		textField.setBounds(131, 79, 221, 22);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		name = new JTextField();
+		name.setBounds(131, 79, 221, 22);
+		contentPane.add(name);
+		name.setColumns(10);
 		
 		JLabel lblAddress = new JLabel("ADDRESS:");
 		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblAddress.setBounds(22, 136, 84, 16);
 		contentPane.add(lblAddress);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(130, 134, 221, 22);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		address = new JTextField();
+		address.setBounds(130, 134, 221, 22);
+		contentPane.add(address);
+		address.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("PHONE:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(22, 190, 85, 16);
 		contentPane.add(lblNewLabel);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(131, 188, 221, 22);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		phone = new JTextField();
+		phone.setBounds(131, 188, 221, 22);
+		contentPane.add(phone);
+		phone.setColumns(10);
 		
 		JLabel lblPayMethod = new JLabel("PAY METHOD:");
 		lblPayMethod.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblPayMethod.setBounds(22, 237, 106, 22);
 		contentPane.add(lblPayMethod);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(130, 238, 222, 22);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		pay = new JTextField();
+		pay.setBounds(130, 238, 222, 22);
+		contentPane.add(pay);
+		pay.setColumns(10);
 		
 		JLabel lblQuantity = new JLabel("QUANTITY:");
 		lblQuantity.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblQuantity.setBounds(32, 287, 96, 16);
 		contentPane.add(lblQuantity);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(130, 285, 116, 22);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		quantity = new JTextField();
+		quantity.setBounds(130, 285, 116, 22);
+		contentPane.add(quantity);
+		quantity.setColumns(10);
 		
 		JButton btnOrder = new JButton("ORDER");
+		
+		btnOrder.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 Connection conn = null;
+			        
+			        try {
+			        	Class.forName("com.mysql.jdbc.Driver").newInstance();
+			        	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazin","root", "");
+			        	String sql = "INSERT INTO comenzi (Name, Address, Phone, Pay_method, Qunatity, Product) VALUES (?, ?, ?, ?, ?, ?)";
+			        	PreparedStatement pst = conn.prepareStatement(sql);
+			        	pst.setString(0, name.getText());
+			        	pst.setString(1, address.getText());
+			        	pst.setString(2, phone.getText());
+			        	pst.setString(3, pay.getText());
+			        	//pst.setString( retypePassword.getText());
+			        	pst.setString(4, quantity.getText());
+			        	//pst.setString(5, ViewProducts.getName());
+			        	
+			}catch (Exception e1) {
+				System.err.println(e);
+			}finally {
+				try {
+					if(conn != null)
+						conn.close();
+					
+				}catch(SQLException x) {}
+			}
+			}
+		});
 		btnOrder.setBounds(83, 369, 97, 25);
 		contentPane.add(btnOrder);
 		
 		JButton btnCancel = new JButton("CANCEL");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ViewProducts().setVisible(true);
+				dispose();
+			}
+		});
 		btnCancel.setBounds(240, 369, 97, 25);
 		contentPane.add(btnCancel);
 	}

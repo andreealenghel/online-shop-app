@@ -23,7 +23,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class ViewProducts extends JFrame {
-
+	
+	private static String name;
 	private JPanel contentPane;
 	private JTable table;
 
@@ -111,7 +112,7 @@ public class ViewProducts extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				int index = table.getSelectedRow();
 				TableModel model = table.getModel();
-				String name = model.getValueAt(index, 1).toString();
+				 name = model.getValueAt(index, 1).toString();
 				
 				new MakeOrder().setVisible(true);
 				dispose();
@@ -123,4 +124,8 @@ public class ViewProducts extends JFrame {
 		table.setBounds(33, 125, 536, 436);
 		contentPane.add(table);
 	}
-}
+	/*public static String getName() {
+		return name;
+	}*/
+	
+	}

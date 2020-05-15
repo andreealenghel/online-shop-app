@@ -44,6 +44,7 @@ public class LoginForm extends javax.swing.JFrame {
         jButton1.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		java.sql.Connection conn = null;
+        		
 		        
 		        try {
 		        	Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -68,8 +69,8 @@ public class LoginForm extends javax.swing.JFrame {
 		            		}
 		            		else
 		            		{
-		            			//new ClientsPage().setVisible(true);
-		            			//dispose();
+		            			new ViewProducts().setVisible(true);
+		            			dispose();
 		            			System.out.println("Te ai conectat ca si client");
 		            		}		     
 		            	}		            			            			            				            	

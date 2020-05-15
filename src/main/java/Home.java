@@ -6,7 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -45,7 +48,7 @@ public class Home extends JFrame {
 		
 		JLabel lblWelcome = new JLabel("WELCOME!");
 		lblWelcome.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 21));
-		lblWelcome.setBounds(156, 29, 133, 38);
+		lblWelcome.setBounds(258, 74, 133, 38);
 		contentPane.add(lblWelcome);
 		
 		JButton btnNewButton = new JButton("Login");
@@ -55,7 +58,7 @@ public class Home extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(69, 157, 97, 25);
+		btnNewButton.setBounds(66, 181, 97, 25);
 		contentPane.add(btnNewButton);
 		
 		JButton btnRegister = new JButton("Register");
@@ -65,7 +68,13 @@ public class Home extends JFrame {
 				dispose();
 			}
 		});
-		btnRegister.setBounds(263, 157, 97, 25);
+		btnRegister.setBounds(263, 181, 97, 25);
 		contentPane.add(btnRegister);
+		
+		JLabel label = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/logo.png")).getImage();
+		label.setIcon(new ImageIcon(img));
+		label.setBounds(35, 30, 180, 125);
+		contentPane.add(label);
 	}
 }

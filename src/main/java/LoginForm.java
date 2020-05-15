@@ -71,9 +71,12 @@ public class LoginForm extends javax.swing.JFrame {
 		            			//new ClientsPage().setVisible(true);
 		            			//dispose();
 		            			System.out.println("Te ai conectat ca si client");
-		            		}
-		     
-		            	}
+		            		}		     
+		            	}		            			            			            				            	
+		            }
+		            
+		            else {
+		            	throw new exceptions.UserNotFound(username);
 		            }
     	}catch (Exception e1) {
     		System.err.println(e1);

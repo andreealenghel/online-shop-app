@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.JCheckBox;
@@ -164,6 +165,11 @@ public class Register extends JFrame {
 			        else
 			        	manager = 0;
 			        pst.setInt(7, manager);
+			        
+			        String user = username.getText();
+			        if(verifyUser(user))
+			        	throw new exceptions.UserAlreadyExists(user);
+			        
 			        pst.executeUpdate();
 			        JOptionPane.showMessageDialog(null, "Successfull register");
 			        new LoginForm().setVisible(true);
@@ -202,4 +208,28 @@ public class Register extends JFrame {
 		
 	
 	}
+	
+	private boolean verifyUser(String u) {
+		Connection conn = null;
+		try {
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazin","root", "");
+			
+			String sql = "SELECT * FROM utilizatori WHERE username = ?";
+			PreparedStatement pst = conn.prepareStatement(sql);
+			pst.setString(1, u);
+			ResultSet rs = pst.executeQuery();
+			
+			if(rs.next()) {
+				conn.close();
+				return true;
+			}
+			
+			conn.close();
+		}catch(Exception e) {
+			System.err.println(e);
+		}
+		return false;
+	}
+	
 }

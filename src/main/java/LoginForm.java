@@ -62,8 +62,8 @@ public class LoginForm extends javax.swing.JFrame {
 		            	if(username.equals(rs.getString("username")) && password.equals(rs.getString("password"))) {
 		            		if(rs.getInt("manager") == 1)
 		            		{
-		            			//new ManagersPage().setVisible(true);
-		            			//dispose();
+		            			new ManagersPage().setVisible(true);
+		            			dispose();
 		            			System.out.println("manager conectat");
 		            			
 		            		}

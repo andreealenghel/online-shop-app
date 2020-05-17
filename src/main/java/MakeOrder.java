@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -116,15 +118,20 @@ public class MakeOrder extends JFrame {
 			        try {
 			        	Class.forName("com.mysql.jdbc.Driver").newInstance();
 			        	conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazin","root", "");
-			        	String sql = "INSERT INTO comenzi (Name, Address, Phone, Pay_method, Qunatity, Product) VALUES (?, ?, ?, ?, ?, ?)";
+			        	String sql = "INSERT INTO comenzi (Name, Address, Phone, Pay_method, Quantity, Product) VALUES (?, ?, ?, ?, ?, ?)";
 			        	PreparedStatement pst = conn.prepareStatement(sql);
-			        	pst.setString(0, name.getText());
-			        	pst.setString(1, address.getText());
-			        	pst.setString(2, phone.getText());
-			        	pst.setString(3, pay.getText());
+			        	pst.setString(1, name.getText());
+			        	pst.setString(2, address.getText());
+			        	pst.setString(3, phone.getText());
+			        	pst.setString(4, pay.getText());
 			        	//pst.setString( retypePassword.getText());
-			        	pst.setString(4, quantity.getText());
-			        	//pst.setString(5, ViewProducts.getName());
+			        	pst.setString(5, quantity.getText());
+			        	pst.setString(6, "product");
+			        	
+			        	pst.executeUpdate();
+			        	JOptionPane.showMessageDialog(null, "Order placed");
+			        	new ViewProducts().setVisible(true);;
+			        	dispose();
 			        	
 			}catch (Exception e1) {
 				System.err.println(e);

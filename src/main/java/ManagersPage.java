@@ -19,6 +19,8 @@ import javax.swing.table.TableModel;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Button;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class ManagersPage extends JFrame {
@@ -123,6 +125,12 @@ public class ManagersPage extends JFrame {
 		contentPane.add(table);
 		
 		JButton btnAddProduct = new JButton("AddProduct");
+		btnAddProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new AddProduct().setVisible(true);
+				dispose();
+			}
+		});
 		btnAddProduct.setBackground(Color.BLACK);
 		btnAddProduct.setForeground(new Color(255, 102, 51));
 		btnAddProduct.setBounds(45, 533, 106, 25);

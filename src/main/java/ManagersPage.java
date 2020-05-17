@@ -149,6 +149,12 @@ public class ManagersPage extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Modify Products");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new Modify().setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setBackground(Color.BLACK);
 		btnNewButton_1.setForeground(new Color(255, 153, 0));
 		btnNewButton_1.setBounds(488, 533, 131, 25);

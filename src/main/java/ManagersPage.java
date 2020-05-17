@@ -137,6 +137,12 @@ public class ManagersPage extends JFrame {
 		contentPane.add(btnAddProduct);
 		
 		JButton btnNewButton = new JButton("Delete Product");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new DeleteProduct().setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton.setBackground(Color.BLACK);
 		btnNewButton.setForeground(new Color(255, 153, 51));
 		btnNewButton.setBounds(253, 533, 138, 25);

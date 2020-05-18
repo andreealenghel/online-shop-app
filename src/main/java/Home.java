@@ -39,42 +39,49 @@ public class Home extends JFrame {
 	 */
 	public Home() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 572, 452);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(124, 252, 0));
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblWelcome = new JLabel("WELCOME!");
-		lblWelcome.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 21));
-		lblWelcome.setBounds(258, 74, 133, 38);
+		lblWelcome.setForeground(Color.BLACK);
+		lblWelcome.setFont(new Font("Engravers MT", Font.BOLD, 27));
+		lblWelcome.setBounds(307, 120, 218, 94);
 		contentPane.add(lblWelcome);
 		
 		JButton btnNewButton = new JButton("Login");
+		btnNewButton.setBackground(new Color(255, 165, 0));
+		btnNewButton.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		btnNewButton.setForeground(Color.BLACK);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new LoginForm().setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(66, 181, 97, 25);
+		btnNewButton.setBounds(99, 303, 132, 44);
 		contentPane.add(btnNewButton);
 		
 		JButton btnRegister = new JButton("Register");
+		btnRegister.setForeground(Color.BLACK);
+		btnRegister.setBackground(new Color(255, 165, 0));
+		btnRegister.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
 		btnRegister.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Register().setVisible(true);
 				dispose();
 			}
 		});
-		btnRegister.setBounds(263, 181, 97, 25);
+		btnRegister.setBounds(328, 303, 124, 44);
 		contentPane.add(btnRegister);
 		
 		JLabel label = new JLabel("");
-		Image img = new ImageIcon(this.getClass().getResource("/logo.png")).getImage();
+		Image img = new ImageIcon(this.getClass().getResource("/online-shop-logo.png")).getImage();
 		label.setIcon(new ImageIcon(img));
-		label.setBounds(35, 30, 180, 125);
+		label.setBounds(12, 13, 272, 257);
 		contentPane.add(label);
 	}
 }

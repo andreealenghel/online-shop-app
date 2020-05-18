@@ -54,86 +54,93 @@ public class Register extends JFrame {
 	 */
 	public Register() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 456, 473);
+		setBounds(100, 100, 456, 517);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(238, 130, 238));
+		contentPane.setBackground(new Color(51, 102, 204));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Register");
+		lblNewLabel.setForeground(Color.ORANGE);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel.setBounds(143, 45, 127, 32);
+		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD, 27));
+		lblNewLabel.setBounds(146, 13, 127, 51);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("First Name :");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_1.setForeground(Color.BLACK);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(39, 92, 124, 16);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Last Name : ");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_2.setForeground(Color.ORANGE);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setBounds(39, 121, 124, 16);
+		lblNewLabel_2.setBounds(39, 141, 124, 16);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Username :");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_3.setForeground(Color.BLACK);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(39, 150, 124, 16);
+		lblNewLabel_3.setBounds(39, 186, 124, 16);
 		contentPane.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Password :");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_4.setForeground(Color.ORANGE);
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_4.setBounds(39, 192, 124, 16);
+		lblNewLabel_4.setBounds(39, 232, 124, 16);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("Phone :");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_5.setForeground(Color.BLACK);
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_5.setBounds(39, 221, 124, 16);
+		lblNewLabel_5.setBounds(39, 273, 124, 16);
 		contentPane.add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_6 = new JLabel("Address :");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel_6.setForeground(Color.ORANGE);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 17));
 		lblNewLabel_6.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_6.setBounds(39, 250, 124, 16);
+		lblNewLabel_6.setBounds(39, 320, 124, 16);
 		contentPane.add(lblNewLabel_6);
 		
 		firstName = new JTextField();
-		firstName.setBounds(187, 89, 116, 22);
+		firstName.setBounds(175, 91, 152, 22);
 		contentPane.add(firstName);
 		firstName.setColumns(10);
 		
 		lastName = new JTextField();
-		lastName.setBounds(187, 118, 116, 22);
+		lastName.setBounds(174, 140, 153, 22);
 		contentPane.add(lastName);
 		lastName.setColumns(10);
 		
 		username = new JTextField();
-		username.setBounds(187, 150, 116, 22);
+		username.setBounds(175, 180, 152, 22);
 		contentPane.add(username);
 		username.setColumns(10);
 		
 		phone = new JTextField();
-		phone.setBounds(187, 218, 116, 22);
+		phone.setBounds(175, 272, 152, 22);
 		contentPane.add(phone);
 		phone.setColumns(10);
 		
 		address = new JTextField();
-		address.setBounds(187, 247, 116, 22);
+		address.setBounds(175, 319, 225, 22);
 		contentPane.add(address);
 		address.setColumns(10);
 		
 		password = new JPasswordField();
-		password.setBounds(187, 189, 116, 22);
+		password.setBounds(175, 231, 152, 22);
 		contentPane.add(password);
 		final JCheckBox checkManager = new JCheckBox("Manager");
 		checkManager.setFont(new Font("Tahoma", Font.BOLD, 15));
-		checkManager.setBounds(50, 289, 113, 25);
+		checkManager.setBounds(92, 363, 98, 25);
 		contentPane.add(checkManager);
 		
 		JButton btnNewButton = new JButton("Register");
@@ -186,7 +193,7 @@ public class Register extends JFrame {
 			
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton.setBounds(66, 329, 127, 25);
+		btnNewButton.setBounds(77, 418, 113, 25);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancel");
@@ -197,12 +204,12 @@ public class Register extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 15));
-		btnNewButton_1.setBounds(238, 329, 97, 25);
+		btnNewButton_1.setBounds(233, 418, 116, 25);
 		contentPane.add(btnNewButton_1);
 		
 		CodManager = new JTextField();
 		CodManager.setText("Cod Manager");
-		CodManager.setBounds(187, 291, 116, 22);
+		CodManager.setBounds(233, 365, 85, 22);
 		contentPane.add(CodManager);
 		CodManager.setColumns(10);
 		

@@ -78,8 +78,8 @@ public class ManagersPage extends JFrame {
 			table.setModel(model);
 			table.getColumnModel().getColumn(0).setPreferredWidth(200);
 			table.getColumnModel().getColumn(1).setPreferredWidth(200);
-			table.getColumnModel().getColumn(2).setPreferredWidth(2000);
-			table.getColumnModel().getColumn(3).setPreferredWidth(2000);
+			table.getColumnModel().getColumn(2).setPreferredWidth(200);
+			table.getColumnModel().getColumn(3).setPreferredWidth(200);
 		}catch(Exception e) {
 			System.out.println("error" + e);
 		}
@@ -94,19 +94,21 @@ public class ManagersPage extends JFrame {
 			}
 		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 719, 681);
+		setBounds(100, 100, 666, 681);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(SystemColor.textHighlight);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblListOfProducts = new JLabel("LIST OF PRODUCTS");
-		lblListOfProducts.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblListOfProducts.setBounds(207, 13, 184, 22);
+		lblListOfProducts.setForeground(Color.ORANGE);
+		lblListOfProducts.setFont(new Font("Lucida Calligraphy", Font.BOLD, 25));
+		lblListOfProducts.setBounds(165, 25, 337, 45);
 		contentPane.add(lblListOfProducts);
 		
 		table = new JTable();
+		table.setFont(new Font("Sitka Small", Font.PLAIN, 15));
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -119,45 +121,48 @@ public class ManagersPage extends JFrame {
 				
 			}
 		});
-		table.setBackground(SystemColor.activeCaption);
+		table.setBackground(Color.ORANGE);
 		
-		table.setBounds(45, 48, 536, 436);
+		table.setBounds(45, 84, 553, 436);
 		contentPane.add(table);
 		
 		JButton btnAddProduct = new JButton("AddProduct");
+		btnAddProduct.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAddProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				new AddProduct().setVisible(true);
 				dispose();
 			}
 		});
-		btnAddProduct.setBackground(Color.BLACK);
-		btnAddProduct.setForeground(new Color(255, 102, 51));
-		btnAddProduct.setBounds(45, 533, 106, 25);
+		btnAddProduct.setBackground(Color.WHITE);
+		btnAddProduct.setForeground(Color.BLACK);
+		btnAddProduct.setBounds(45, 554, 120, 38);
 		contentPane.add(btnAddProduct);
 		
 		JButton btnNewButton = new JButton("Delete Product");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new DeleteProduct().setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setForeground(new Color(255, 153, 51));
-		btnNewButton.setBounds(253, 533, 138, 25);
+		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setForeground(SystemColor.desktop);
+		btnNewButton.setBounds(228, 554, 162, 38);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Modify Products");
+		JButton btnNewButton_1 = new JButton("Modify Product");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new Modify().setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton_1.setBackground(Color.BLACK);
-		btnNewButton_1.setForeground(new Color(255, 153, 0));
-		btnNewButton_1.setBounds(488, 533, 131, 25);
+		btnNewButton_1.setBackground(Color.WHITE);
+		btnNewButton_1.setForeground(Color.BLACK);
+		btnNewButton_1.setBounds(450, 554, 148, 38);
 		contentPane.add(btnNewButton_1);
 	}
 }

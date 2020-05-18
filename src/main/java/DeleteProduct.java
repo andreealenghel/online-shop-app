@@ -33,35 +33,43 @@ import javax.swing.JTextField;
 public class DeleteProduct extends JFrame{
 	private JTextField name;
 	public DeleteProduct() {
-		getContentPane().setBackground(new Color(0, 51, 255));
+		getContentPane().setBackground(new Color(30, 144, 255));
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Name of the Product ");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel.setBounds(12, 98, 156, 41);
+		lblNewLabel.setForeground(new Color(255, 255, 0));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel.setBounds(27, 98, 216, 41);
 		getContentPane().add(lblNewLabel);
 		
 		name = new JTextField();
-		name.setBounds(220, 108, 123, 27);
+		name.setBounds(247, 107, 123, 27);
 		getContentPane().add(name);
 		name.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Delete a product");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(127, 27, 169, 27);
+		lblNewLabel_1.setForeground(new Color(255, 255, 0));
+		lblNewLabel_1.setFont(new Font("Comic Sans MS", Font.BOLD, 25));
+		lblNewLabel_1.setBounds(89, 27, 219, 41);
 		getContentPane().add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("Cancel");
+		btnNewButton.setBackground(new Color(135, 206, 235));
+		btnNewButton.setForeground(new Color(0, 0, 128));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				new ManagersPage().setVisible(true);
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(246, 201, 97, 25);
+		btnNewButton.setBounds(239, 184, 97, 25);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Delete");
+		btnNewButton_1.setBackground(new Color(135, 206, 250));
+		btnNewButton_1.setForeground(new Color(0, 0, 128));
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Connection conn=null;
@@ -86,7 +94,7 @@ public class DeleteProduct extends JFrame{
 			}
 			}
 		});
-		btnNewButton_1.setBounds(46, 201, 97, 25);
+		btnNewButton_1.setBounds(75, 184, 97, 25);
 		getContentPane().add(btnNewButton_1);
 	}
 	

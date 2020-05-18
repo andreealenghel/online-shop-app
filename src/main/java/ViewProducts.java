@@ -21,6 +21,8 @@ import java.awt.event.WindowEvent;
 import java.awt.SystemColor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
+import java.awt.Cursor;
 
 public class ViewProducts extends JFrame {
 	
@@ -76,10 +78,10 @@ public class ViewProducts extends JFrame {
 			pts.close();
 			conn.close();
 			table.setModel(model);
-			table.getColumnModel().getColumn(0).setPreferredWidth(200);
-			table.getColumnModel().getColumn(1).setPreferredWidth(200);
-			table.getColumnModel().getColumn(2).setPreferredWidth(2000);
-			table.getColumnModel().getColumn(3).setPreferredWidth(2000);
+			table.getColumnModel().getColumn(0).setPreferredWidth(5);
+			table.getColumnModel().getColumn(1).setPreferredWidth(5);
+			table.getColumnModel().getColumn(2).setPreferredWidth(5);
+			table.getColumnModel().getColumn(4).setPreferredWidth(5);
 		}catch(Exception e) {
 			System.out.println("error" + e);
 		}
@@ -96,17 +98,23 @@ public class ViewProducts extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 634, 569);
 		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
+		contentPane.setBackground(SystemColor.textHighlight);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblListOfProducts = new JLabel("LIST OF PRODUCTS");
-		lblListOfProducts.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblListOfProducts.setBounds(207, 13, 184, 22);
+		lblListOfProducts.setForeground(Color.YELLOW);
+		lblListOfProducts.setFont(new Font("Lucida Calligraphy", Font.BOLD, 26));
+		lblListOfProducts.setBounds(151, 50, 310, 46);
 		contentPane.add(lblListOfProducts);
 		
 		table = new JTable();
+		table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		table.setGridColor(Color.BLUE);
+		table.setRowHeight(28);
+		table.setFont(new Font("Sitka Small", Font.PLAIN, 15));
+		table.setForeground(Color.BLACK);
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -119,9 +127,9 @@ public class ViewProducts extends JFrame {
 				
 			}
 		});
-		table.setBackground(SystemColor.activeCaption);
+		table.setBackground(Color.ORANGE);
 		
-		table.setBounds(33, 125, 536, 436);
+		table.setBounds(40, 123, 536, 386);
 		contentPane.add(table);
 	}
 	/*public static String getName() {

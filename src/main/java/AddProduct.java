@@ -38,55 +38,60 @@ public class AddProduct extends JFrame {
 	private JTextField Price;
 	public AddProduct() {
 		getContentPane().setForeground(new Color(0, 0, 0));
-		getContentPane().setBackground(new Color(255, 153, 0));
+		getContentPane().setBackground(new Color(255, 218, 185));
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Name");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel.setBounds(70, 127, 83, 30);
+		lblNewLabel.setForeground(new Color(0, 0, 128));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblNewLabel.setBounds(53, 130, 94, 42);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Description");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_1.setBounds(70, 202, 94, 24);
+		lblNewLabel_1.setForeground(new Color(0, 0, 128));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblNewLabel_1.setBounds(53, 194, 137, 36);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Picture");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_2.setBounds(70, 279, 83, 16);
+		lblNewLabel_2.setForeground(new Color(0, 0, 128));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblNewLabel_2.setBounds(56, 262, 97, 36);
 		getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Price");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewLabel_3.setBounds(70, 346, 56, 16);
+		lblNewLabel_3.setForeground(new Color(0, 0, 128));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 19));
+		lblNewLabel_3.setBounds(53, 334, 72, 20);
 		getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("Add a new product");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel_4.setBounds(184, 13, 370, 30);
+		lblNewLabel_4.setForeground(new Color(0, 0, 128));
+		lblNewLabel_4.setFont(new Font("Comic Sans MS", Font.BOLD, 30));
+		lblNewLabel_4.setBounds(101, 28, 317, 70);
 		getContentPane().add(lblNewLabel_4);
 		
 		Name = new JTextField();
-		Name.setBounds(272, 132, 116, 22);
+		Name.setBounds(182, 139, 172, 30);
 		getContentPane().add(Name);
 		Name.setColumns(10);
 		
 		Description = new JTextField();
-		Description.setBounds(272, 204, 116, 22);
+		Description.setBounds(182, 194, 243, 42);
 		getContentPane().add(Description);
 		Description.setColumns(10);
 		
 		Picture = new JTextField();
-		Picture.setBounds(272, 277, 116, 22);
+		Picture.setBounds(182, 261, 160, 44);
 		getContentPane().add(Picture);
 		Picture.setColumns(10);
 		
 		Price = new JTextField();
-		Price.setBounds(272, 344, 116, 22);
+		Price.setBounds(182, 336, 126, 36);
 		getContentPane().add(Price);
 		Price.setColumns(10);
 		
-		JButton btnSave = new JButton("Save");
+		JButton btnSave = new JButton("SAVE");
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Connection conn=null;
@@ -115,10 +120,22 @@ public class AddProduct extends JFrame {
 			
 		}
 		});
-		btnSave.setFont(new Font("Tahoma", Font.BOLD, 13));
-		btnSave.setBackground(new Color(0, 51, 255));
-		btnSave.setBounds(457, 410, 97, 25);
+		btnSave.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnSave.setBackground(new Color(255, 250, 240));
+		btnSave.setBounds(299, 415, 119, 36);
 		getContentPane().add(btnSave);
+		
+		JButton btnNewButton = new JButton("CANCEL");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ManagersPage().setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton.setBackground(new Color(255, 250, 240));
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnNewButton.setBounds(100, 415, 119, 36);
+		getContentPane().add(btnNewButton);
 	}
 	
 	public static void main(String[] args) {
@@ -133,7 +150,4 @@ public class AddProduct extends JFrame {
 			}
 		});
 	}
-	
-	
-	
 }

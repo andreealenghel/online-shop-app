@@ -14,6 +14,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class MakeOrder extends JFrame {
 
@@ -45,64 +46,71 @@ public class MakeOrder extends JFrame {
 	 */
 	public MakeOrder() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 440, 498);
+		setBounds(100, 100, 440, 488);
 		contentPane = new JPanel();
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblIntroducetiDatele = new JLabel("INTRODUCETI DATELE");
-		lblIntroducetiDatele.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblIntroducetiDatele.setBounds(130, 13, 176, 30);
+		JLabel lblIntroducetiDatele = new JLabel("FILL IN THE FORM");
+		lblIntroducetiDatele.setForeground(new Color(0, 0, 128));
+		lblIntroducetiDatele.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
+		lblIntroducetiDatele.setBounds(113, 34, 221, 30);
 		contentPane.add(lblIntroducetiDatele);
 		
 		JLabel lblName = new JLabel("NAME:");
-		lblName.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblName.setBounds(22, 74, 55, 30);
+		lblName.setForeground(Color.BLUE);
+		lblName.setFont(new Font("Bookman Old Style", Font.BOLD, 16));
+		lblName.setBounds(22, 95, 84, 30);
 		contentPane.add(lblName);
 		
 		name = new JTextField();
-		name.setBounds(131, 79, 221, 22);
+		name.setBounds(162, 100, 221, 22);
 		contentPane.add(name);
 		name.setColumns(10);
 		
 		JLabel lblAddress = new JLabel("ADDRESS:");
-		lblAddress.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblAddress.setBounds(22, 136, 84, 16);
+		lblAddress.setForeground(new Color(0, 0, 128));
+		lblAddress.setFont(new Font("Bookman Old Style", Font.BOLD, 16));
+		lblAddress.setBounds(22, 153, 96, 16);
 		contentPane.add(lblAddress);
 		
 		address = new JTextField();
-		address.setBounds(130, 134, 221, 22);
+		address.setBounds(162, 151, 221, 22);
 		contentPane.add(address);
 		address.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("PHONE:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(22, 190, 85, 16);
+		lblNewLabel.setForeground(new Color(0, 0, 255));
+		lblNewLabel.setFont(new Font("Bookman Old Style", Font.BOLD, 16));
+		lblNewLabel.setBounds(22, 203, 85, 16);
 		contentPane.add(lblNewLabel);
 		
 		phone = new JTextField();
-		phone.setBounds(131, 188, 221, 22);
+		phone.setBounds(162, 201, 221, 22);
 		contentPane.add(phone);
 		phone.setColumns(10);
 		
 		JLabel lblPayMethod = new JLabel("PAY METHOD:");
-		lblPayMethod.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblPayMethod.setBounds(22, 237, 106, 22);
+		lblPayMethod.setForeground(new Color(0, 0, 128));
+		lblPayMethod.setFont(new Font("Bookman Old Style", Font.BOLD, 16));
+		lblPayMethod.setBounds(22, 249, 127, 22);
 		contentPane.add(lblPayMethod);
 		
 		pay = new JTextField();
-		pay.setBounds(130, 238, 222, 22);
+		pay.setBounds(161, 250, 222, 22);
 		contentPane.add(pay);
 		pay.setColumns(10);
 		
 		JLabel lblQuantity = new JLabel("QUANTITY:");
-		lblQuantity.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblQuantity.setBounds(32, 287, 96, 16);
+		lblQuantity.setForeground(new Color(0, 0, 255));
+		lblQuantity.setFont(new Font("Bookman Old Style", Font.BOLD, 16));
+		lblQuantity.setBounds(22, 303, 96, 16);
 		contentPane.add(lblQuantity);
 		
 		quantity = new JTextField();
-		quantity.setBounds(130, 285, 116, 22);
+		quantity.setBounds(162, 301, 116, 22);
 		contentPane.add(quantity);
 		quantity.setColumns(10);
 		
@@ -137,7 +145,7 @@ public class MakeOrder extends JFrame {
 			}
 			}
 		});
-		btnOrder.setBounds(83, 369, 97, 25);
+		btnOrder.setBounds(80, 376, 97, 25);
 		contentPane.add(btnOrder);
 		
 		JButton btnCancel = new JButton("CANCEL");
@@ -147,7 +155,7 @@ public class MakeOrder extends JFrame {
 				dispose();
 			}
 		});
-		btnCancel.setBounds(240, 369, 97, 25);
+		btnCancel.setBounds(237, 376, 97, 25);
 		contentPane.add(btnCancel);
 	}
 }

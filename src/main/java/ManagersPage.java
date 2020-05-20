@@ -164,5 +164,15 @@ public class ManagersPage extends JFrame {
 		btnNewButton_1.setForeground(Color.BLACK);
 		btnNewButton_1.setBounds(450, 554, 148, 38);
 		contentPane.add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("ViewOrders");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				new ViewOrders().setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_2.setBounds(228, 527, 162, 25);
+		contentPane.add(btnNewButton_2);
 	}
 }
